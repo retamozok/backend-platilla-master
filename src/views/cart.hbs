@@ -1,0 +1,28 @@
+{{>nav}}
+
+<main class="row justify-content-around">
+
+<h1 class="m-1">Mi Carrito</h1>
+
+<div class="row justify-content-around">
+{{#each carts}}
+  <div class="col-5 col-sm-3 m-2 ms-0">
+    <img src="./img/products/{{url}}" class="col-12 m-1 img-fluid" alt="...">
+    <h5>{{nombre}}</h5>
+    <h6>Precio: ${{precio}}</h6>
+    <h6>Cantidad: {{cantidad}}</h6>
+    <h6>Estado: {{status}}</h6>
+    <p>{{descripcion}}</p>
+        
+  <form action="/carrito?_method=delete" method="post">
+    <input type="hidden" name="id" value={{id}}>
+    <button class="m-3" type="submit">Sacar del carrito</button>
+  </form>
+
+  </div>
+ {{/each}}
+</div>
+
+</main>
+
+{{>footer}}

@@ -6,13 +6,14 @@
             <img src="./img/products/{{url}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{name}}</h5>
-              <p class="card-text">el precio del producto es: {{price}} $ y tiene un stock de: {{stock}}</p>
+              <p class="card-text">el precio del producto es: $ {{price}} y tiene un stock de: {{stock}}. Su estado es: {{status}}</p>
               <form action="/carrito" method="post">
                 <input type="hidden" name="idProduct" value={{_id}}>
                 <input type="hidden" name="name" value={{name}}>
                 <input type="hidden" name="price" value={{price}}>
-                <input type="hidden" name="url" value={{url}}>
-                <input type="number" name="cantidad" min="1" max={{stock}}>
+                <input type="hidden" name="status" value={{status}}>
+               <input type="number" name="cantidad" min="1" max={{stock}}>
+                <input type="hidden" name="url" value={{url}}>         
                 <button type="submit">Agregar al carrito</button>
               </form>
             </div>

@@ -1,14 +1,15 @@
 {{> nav }}
-<h1>Productos</h1>
+<h1 class="row justify-content-center">Creador de Productos</h1>
 <form action="editproductos" method="post" enctype="multipart/form-data">
-    <input placeholder="Ingresar Nombre" name="name" type="text" required  >
+    <input placeholder="Ingresar Nombre" name="name" type="text" required>
     <input placeholder="Ingregar Precio" type="number" name="price" required>
-    <input placeholder="Ingresar Stock" min="1" type="number" name="stock" required  >
+    <input placeholder="Ingregar Estado" type="text" name="status" required>
+    <input placeholder="Ingresar Stock" min="1" type="number" name="stock" required>
     <input type="file" name="url" accept="image/x-png,image/gif,image/jpeg" required>
-    <button type="submit" >Crear Producto</button>
+    <button type="submit">Crear Producto</button>
 </form>
 
-<div class="row">
+<div class="row justify-content-center">
 {{#each Productos}}
 <div class="card m-3" style="width: 18rem;">
   <img src="./img/products/{{url}}" class="card-img-top" alt="...">
@@ -19,6 +20,8 @@
         <input name="name"  placeholder="{{name}}" type="text">
         <h6>Precio:</h6>
         <input name="price" type="number" placeholder={{price}}>
+        <h6>Estado:</h6>
+        <input name="status" type="text" placeholder={{status}}>
         <h6>Stock:</h6>
         <input name="stock" type="number" min="1" placeholder={{stock}}>
         <input name="url" type="hidden" value="{{url}}">
@@ -35,3 +38,4 @@
 
 {{/each}}
 </div>
+

@@ -31,9 +31,9 @@ export const view = async (req,res)=>{
 
     EDFile.mv(`./public/img/products/${product.url}`,err => {
       if(err) return res.status(500).send({ message : err })
-      return res.status(200).render("nofound",{message:"no se encontró el producto"})
+      return res.status(200).render("nofound",{message:"No se encontró el producto"})
       })
-    res.status(200).redirect('/editproductos')
+    res.status(200).redirect('/editProductos')
   }catch(e){
     console.log(e)
   }
@@ -44,10 +44,10 @@ export const view = async (req,res)=>{
     try {
       const productfound = await Product.find({_id:req.body._id}).lean()
          if ((Object.entries(productfound).length === 0)) {
-           return res.status(200).render("nofound",{message:"no se encontró el producto"})
+           return res.status(200).render("nofound",{message:"No se encontró el producto"})
          }
          await Product.deleteOne({ _id: req.body._id })
-         res.status(200).redirect('/editproductos')
+         res.status(200).redirect('/editProductos')
      
    } 
    catch (e) { console.log(e) }  
@@ -66,7 +66,7 @@ export const view = async (req,res)=>{
     try {
       const productfound = await Product.find({_id:req.body._id}).lean()
           if ((Object.entries(productfound).length === 0)) {
-            return res.status(200).render("nofound",{message:"no se encontró el producto"})
+            return res.status(200).render("nofound",{message:"No se encontró el producto"})
           }
       await Product.findOneAndUpdate(
         { _id: req.body._id },
@@ -78,10 +78,10 @@ export const view = async (req,res)=>{
   
       EDFile.mv(`./public/img/products/${req.body.url}`,err => {
         if(err) return res.status(500).send({ message : err })
-        return res.status(200).render("nofound",{message:"no se encontró el producto"})
+        return res.status(200).render("nofound",{message:"No se encontró el producto"})
         })
       }
-      res.status(200).redirect('/editproductos')
+      res.status(200).redirect('/editProductos')
       
     } 
     catch (e) { console.log(e) }

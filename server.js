@@ -58,7 +58,7 @@ app.use(session({
   saveUninitialized: false,
 
   store: MongoStore.create({
-    mongoUrl:"mongodb://localhost:27017/ecommerce",
+    mongoUrl:"mongodb://localhost:27017/",
     mongoOptions: advancedOptions,
     collectionName: 'sessions',
     ttl: 10 * 60
