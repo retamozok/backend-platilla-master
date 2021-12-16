@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
   export const conectarDB = async () => {
     try {
-      await mongoose.connect("mongodb://localhost:27017/ecommerce", {
+      await mongoose.connect("mongodb://localhost:27017/comercio", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
